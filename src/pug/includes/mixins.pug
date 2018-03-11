@@ -1,0 +1,62 @@
+mixin head(title)
+	head
+		meta(charset="UTF-8")
+		meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+		title= title
+
+		script(defer src="/js/script.all.min.js")
+		link(rel="stylesheet" href="/css/style.all.min.css")
+
+		block
+
+mixin elips
+	.elips
+
+mixin mobileMenu
+	.mobile-menu-wrapper
+		.mobile-menu-box
+			.top-bar
+				.avatar
+			.bottom-bar
+				nav
+					ul
+						li: a about us.
+						li: a services.
+						li: a out projects.
+						li: a process.
+						li: a faq.
+						li: a blog.
+						li: a contacts.
+
+
+mixin dotterBackground
+	.dotter-section
+		.dotter-item
+		.dotter-item
+		.dotter-item
+		.dotter-item
+
+mixin siteHeader
+	.site-header
+		.container
+			a.site-logo(href="index.html")
+				.avatar
+				.text
+					p helicopter
+					p.strong view.
+			.modal-open(data-mobile)
+			nav.site-nav
+				ul
+					li: a about us.
+					li: a.active services.
+					li: a out projects.
+					li: a process.
+					li: a faq.
+					li: a blog.
+					li: a contacts.
+
+mixin siteFooter
+	.site-footer
+		.footer-content
+			p © 2017. helicopter view. All rights reserved. Design and development –
+			strong Sponge D&D.
