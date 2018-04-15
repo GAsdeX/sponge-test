@@ -3,12 +3,16 @@ include includes/mixins
 doctype html
 html(lang="en")
 	+head('Sponge')
-	body
+	body(data-content-area="1400px")
 		+elips
 		+siteHeader
 		+dotterBackground
 		+mobileMenu
-
+		.pre-loader.active
+			.loader-box
+				.loader
+				.entry
+					p helicopter view.
 		.site-content
 			.head-section
 				.site-title
@@ -103,16 +107,6 @@ html(lang="en")
 							p and support during the
 							strong post-acquisition period
 
-			.service-fee-section
-				.section-title
-					| our service fee
-					strong .
-				.tabled
-					.t-row
-						.t-cell Equity value
-						.t-cell Service fee
-						.t-cell.procent %
-				.sub-title This offer excludes distressed, and business in special situations
 			.offers-section
 				.section-title
 					| our offer

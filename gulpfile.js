@@ -5,7 +5,7 @@ var gulp      = require('gulp');
 var nano      = require('gulp-cssnano');
 var htmlMin   = require('gulp-htmlmin');
 var inject    = require('gulp-inject-string');
-var less      = require('gulp-less');
+var sass      = require('gulp-sass');
 var pug       = require('gulp-pug');
 var rename    = require('gulp-rename');
 var streamify = require('gulp-streamify');
@@ -67,10 +67,10 @@ var paths = new function() {
 	this.jsFiles = this.jsDir + '/**/*.js';
 	this.jsOut   = this.distDir + '/js';
 	
-	this.lessDir   = this.srcDir + '/less';
-	this.less      = this.lessDir + '/index.less';
-	this.lessFiles = this.lessDir + '/**/*.less';
-	this.lessOut   = this.distDir + '/css';
+	this.sassDir   = this.srcDir + '/sass';
+	this.sass      = this.sassDir + '/index.scss';
+	this.sassFiles = this.sassDir + '/**/*.scss';
+	this.sassOut   = this.distDir + '/css';
 	
 	this.pugDir   = this.srcDir + '/pug';
 	this.pug      = [
@@ -149,14 +149,14 @@ gulp.task('scripts', ['js-browserify']);
 
 // Styles
 
-gulp.task('less-compile', function (callback) {
-	return gulp.src(paths.less)
-		.pipe(failsafePipe(less(), callback))
+gulp.task('scss-compile', function (callback) {
+	return gulp.src(paths.sass)
+		.pipe(failsafePipe(sass(), callback))
 		.pipe(!isLocal() ? failsafePipe(nano(), callback) : gutil.noop())
 		.pipe(rename('style.all.min.css'))
-		.pipe(gulp.dest(paths.lessOut));
+		.pipe(gulp.dest(paths.sassOut));
 });
-gulp.task('styles', ['less-compile']);
+gulp.task('styles', ['scss-compile']);
 
 // Stages
 
@@ -166,7 +166,7 @@ gulp.task('watch', function () {
 	gulp.watch(paths.imgFiles, ['images']);
 	gulp.watch([paths.htmlFiles, paths.pugFiles], ['markup']);
 	gulp.watch(paths.jsFiles, ['scripts']);
-	gulp.watch([paths.cssFiles, paths.lessFiles], ['styles']);
+	gulp.watch([paths.cssFiles, paths.sassFiles], ['styles']);
 });
 
 gulp.task('build', ['files', 'images', 'markup', 'scripts', 'styles']);

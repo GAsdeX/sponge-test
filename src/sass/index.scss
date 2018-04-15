@@ -3,8 +3,11 @@
  * http://lesscss.org/features/#import-options
  */
 
-@import (inline) "../../node_modules/bootstrap/dist/css/bootstrap-grid.css";
+@import "../../node_modules/bootstrap/dist/css/bootstrap-grid";
+
 
 @import "global";
 @import "style";
 @import "media";
+
+

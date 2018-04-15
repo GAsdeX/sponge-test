@@ -9,8 +9,8 @@
 			ul {
 				li {
 					a {
-					 padding-left: 30px;
-						
+						padding-left: 30px;
+
 						&.active {
 							&:after {
 								left: 28px;
@@ -41,7 +41,7 @@
 	}
 	.site-header {
 		position: relative;
-		
+
 		.modal-open {
 			display: block;
 			top: 50%;
@@ -56,7 +56,7 @@
 			position: absolute;
 		}
 		nav.site-nav {
-			
+
 			ul {
 				display: none;
 			}
@@ -81,7 +81,7 @@
 @media(max-width: 768px) {
 	.site-header {
 		nav.site-nav {
-			
+
 			ul {
 				display: none;
 			}
@@ -129,7 +129,7 @@
 				padding-top: 30px;
 				padding-right: 30px;
 				padding-left: 30px;
-				
+
 				.offer-content {
 					padding-top: 10px;
 				}
@@ -138,7 +138,7 @@
 		.advantages-section {
 			.advantage-card {
 				width: 50%;
-				
+
 				.avatar {
 					margin-top: 60px;
 					margin-bottom: 30px;

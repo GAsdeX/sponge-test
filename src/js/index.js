@@ -26,4 +26,9 @@ $(function () {
 			$mobileMenu.removeClass('active');
 		}
 	});
+	
+	setTimeout(function(){
+		document.querySelector('.pre-loader').classList.remove('active');
+	}, 2000);
+	
 });

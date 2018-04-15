@@ -23,6 +23,22 @@ h1, h2, h3, h4, h5, h6, ul, li, a, span, div, input, textarea, p {
 a {
 	cursor: pointer;
 }
+[data-content-area="1300px"] {
+	.container {
+		max-width: 1300px;
+	}
+}
+[data-content-area="1400px"] {
+	.container {
+		max-width: 1400px;
+	}
+}
+[data-content-area="1500px"] {
+	.container {
+		max-width: 1500px;
+	}
+}
+
 
 @font-face{
 	font-family: 'Proximanova-bold';
@@ -41,14 +57,14 @@ a {
 }
 
 
-.proxima-bold() {
+@mixin proxima-bold(){
 	font-family: 'Proximanova-bold';
 }
 
-.proxima-extra() {
+@mixin proxima-extra(){
 	font-family: 'Proximanova-Extra-bold';
 }
 
-.proxima-semi-bold() {
+@mixin proxima-semi-bold(){
 	font-family: 'Proximanova-Semi-bold';
 }
