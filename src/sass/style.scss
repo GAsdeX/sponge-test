@@ -16,6 +16,28 @@ $gamma-green: #3caa96;
 	}
 }
 
+/*loaders*/
+
+.pre-animation {
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease-in-out;
+}
+.animate {
+	opacity: 1;
+	visibility: visible;
+	transition: all 0.3s ease-in-out;
+	transform: scale(0.8);
+
+	&.top-down {
+		transform: translateY(30px);
+	}
+	&.scale-in {
+		transform: none;
+	}
+}
+
+/*components*/
 .elips {
 	background-image: url('../img/icons/ellipse-3.png');
 	background-repeat: no-repeat;
@@ -173,7 +195,6 @@ $gamma-green: #3caa96;
 		}
 	}
 }
-
 .section-title {
 	@include proxima-extra;
 	font-size: 60px;
@@ -185,6 +206,7 @@ $gamma-green: #3caa96;
 	}
 }
 
+/*main*/
 .site-header {
 	height: 107px;
 	border-bottom: 1px dotted #ccc;
@@ -310,6 +332,11 @@ $gamma-green: #3caa96;
 			float: left;
 			padding: 0 15px;
 
+			&:hover {
+				.avatar {
+					transform: scale(1.1);
+				}
+			}
 			.avatar {
 				height: 70px;
 				width: 100%;
@@ -319,6 +346,7 @@ $gamma-green: #3caa96;
 				background-size: contain;
 				background-repeat: no-repeat;
 				background-position: center;
+				transition: all 0.1s ease-in-out;
 			}
 			.text {
 				text-align: center;
@@ -403,12 +431,18 @@ $gamma-green: #3caa96;
 			padding-right: 60px;
 			box-sizing: border-box;
 
+			&:hover {
+				.avatar {
+					transform: scale(1.1);
+				}
+			}
 			.avatar {
 				height: 107px;
 				width: 107px;
 				background-size: 49px;
 				background-repeat: no-repeat;
 				background-position: center;
+				transition: all 0.1s ease-in-out;
 			}
 			.offer-content {
 				padding-top: 47px;

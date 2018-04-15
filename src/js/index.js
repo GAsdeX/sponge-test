@@ -11,9 +11,61 @@ var functions = require('./functions');
 $(function () {
 
 	// Code goes here
-	console.log($(document).height());
+	
+	var advantagesBlock   = document.querySelector('.site-content .advantages-section .container');
+	var offerBlock        = document.querySelector('.site-content .offers-section .container .row');
+	var firstTitleBlock   = document.querySelector('.site-content .head-section');
+	var secondTitleBlock  = document.querySelector('.site-content .offers-section .section-title');
+	
+	
+	// Preload animation
+	// lists
+	var advantages = new functions.animatedList('.site-content .advantages-section .container');
+	var offers = new functions.animatedList('.site-content .offers-section .container .row');
+	
+	
+	// titles
+	var firstTitle =  new functions.animatedList('.site-content .head-section');
+	var secondTitle = new functions.animatedList('.site-content .offers-section .section-title');
+	
+	advantages.initAnimation();
+	offers.initAnimation();
+	
+	firstTitle.initSingleAnimation();
+	secondTitle.initSingleAnimation();
+	
+	
+	// childNodes
+	
 	$('.dotter-section').css('height', $(document).height() + 'px');
 	
+	window.addEventListener('scroll', function() {
+		cheeckAnimations();
+	});
+	window.addEventListener('load', function() {
+		setTimeout(function(){
+			document.querySelector('.pre-loader').classList.remove('active');
+			cheeckAnimations();
+			
+		}, 2000);
+	});
+	
+	function cheeckAnimations() {
+		var offsetY = window.pageYOffset + window.innerHeight;
+		
+		if (advantagesBlock.offsetTop < offsetY) {
+			advantages.animateItestLoad();
+		}
+		if (firstTitleBlock.offsetTop < offsetY) {
+			firstTitle.animateTitle();
+		}
+		if (offerBlock.offsetTop < offsetY) {
+			offers.animateItestLoad();
+		}
+		if (secondTitleBlock.offsetTop < offsetY) {
+			secondTitle.animateTitle();
+		}
+	}
 	
 	var $mobileMenu = $('.mobile-menu-wrapper');
 	
@@ -29,6 +81,8 @@ $(function () {
 	
 	setTimeout(function(){
 		document.querySelector('.pre-loader').classList.remove('active');
+		cheeckAnimations();
+		
 	}, 2000);
 	
 });
