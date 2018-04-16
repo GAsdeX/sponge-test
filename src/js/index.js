@@ -1,6 +1,5 @@
 'use strict';
 
-var $ = window.$ = window.jQuery = require('jquery');
 var functions = require('./functions');
 
 /*
@@ -8,7 +7,7 @@ var functions = require('./functions');
  * functions.exportName()
  */
 
-$(function () {
+(function () {
 
 	// Code goes here
 	
@@ -37,20 +36,20 @@ $(function () {
 	
 	// childNodes
 	
-	$('.dotter-section').css('height', $(document).height() + 'px');
+	console.log(document.body.scrollHeight);
+	document.querySelector('.dotter-section').style.height = document.body.scrollHeight + 'px';
 	
 	window.addEventListener('scroll', function() {
-		cheeckAnimations();
+		checkAnimations();
 	});
 	window.addEventListener('load', function() {
 		setTimeout(function(){
-			document.querySelector('.pre-loader').classList.remove('active');
-			cheeckAnimations();
+			checkAnimations();
 			
 		}, 2000);
 	});
 	
-	function cheeckAnimations() {
+	function checkAnimations() {
 		var offsetY = window.pageYOffset + window.innerHeight;
 		
 		if (advantagesBlock.offsetTop < offsetY) {
@@ -67,22 +66,27 @@ $(function () {
 		}
 	}
 	
-	var $mobileMenu = $('.mobile-menu-wrapper');
+	var mobileMenu = document.querySelector('.mobile-menu-wrapper');
 	
-	$('[data-mobile]').click(function(){
-		$mobileMenu.addClass('active');
+	document.querySelector('[data-mobile]').addEventListener('click', function() {
+		console.log(333);
+		mobileMenu.classList.add('active');
 	});
-	
-	$mobileMenu.click(function(e){
-		if($(e.target).closest('.mobile-menu-wrapper .mobile-menu-box').length == 0) {
-			$mobileMenu.removeClass('active');
+	mobileMenu.addEventListener('click', function(e){
+		console.log(e);
+		console.log(e.target.closest('.mobile-menu-wrapper .mobile-menu-box'));
+		
+		var isBackground = e.target.closest('.mobile-menu-wrapper .mobile-menu-box');
+		
+		if (!isBackground) {
+			mobileMenu.classList.remove('active');
 		}
 	});
 	
+	
 	setTimeout(function(){
 		document.querySelector('.pre-loader').classList.remove('active');
-		cheeckAnimations();
 		
 	}, 2000);
 	
-});
+})();

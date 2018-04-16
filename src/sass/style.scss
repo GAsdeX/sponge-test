@@ -129,6 +129,7 @@ $gamma-green: #3caa96;
 	bottom: 0;
 	left: 0;
 	right: 0;
+	z-index: 10;
 	background-color: rgba(0,0,0,0.5);
 	transition: all 0.2s ease-in-out;
 	opacity: 0;
@@ -266,20 +267,25 @@ $gamma-green: #3caa96;
 					font-size: 16px;
 					display: block;
 					padding-left: 57px;
+					position: relative;
 
+					&:hover {
+						&:after {
+							width: 18px;
+						}
+					}
+					&:after {
+						content: '';
+						top: 0px;
+						width: 0px;
+						border-bottom: 2px solid #000000;
+						left: 53px;
+						height: 2px;
+						position: absolute;
+						transition: all 0.1s ease-in-out;
+					}
 					&.active {
 						color: $gamma-green;
-						position: relative;
-
-						&:after {
-							content: '';
-							top: 0px;
-							width: 18px;
-							border-bottom: 2px solid #000000;
-							left: 53px;
-							height: 2px;
-							position: absolute;
-						}
 					}
 				}
 			}
