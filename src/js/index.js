@@ -36,7 +36,6 @@ var functions = require('./functions');
 	
 	// childNodes
 	
-	console.log(document.body.scrollHeight);
 	document.querySelector('.dotter-section').style.height = document.body.scrollHeight + 'px';
 	
 	window.addEventListener('scroll', function() {
@@ -69,13 +68,9 @@ var functions = require('./functions');
 	var mobileMenu = document.querySelector('.mobile-menu-wrapper');
 	
 	document.querySelector('[data-mobile]').addEventListener('click', function() {
-		console.log(333);
 		mobileMenu.classList.add('active');
 	});
 	mobileMenu.addEventListener('click', function(e){
-		console.log(e);
-		console.log(e.target.closest('.mobile-menu-wrapper .mobile-menu-box'));
-		
 		var isBackground = e.target.closest('.mobile-menu-wrapper .mobile-menu-box');
 		
 		if (!isBackground) {
